@@ -1,0 +1,30 @@
+a
+    Vâc  ã                   @   s   d Z ddlZG dd„ dƒZdS )zHFrameworks for running multiple Streamlit applications as a single app.
+é    Nc                   @   s(   e Zd ZdZdd„ Zdd„ Zdd„ ZdS )	ÚMultiAppaø  Framework for combining multiple streamlit applications.
+    Usage:
+        def foo():
+            st.title("Hello Foo")
+        def bar():
+            st.title("Hello Bar")
+        app = MultiApp()
+        app.add_app("Foo", foo)
+        app.add_app("Bar", bar)
+        app.run()
+    It is also possible keep each application in a separate file.
+        import foo
+        import bar
+        app = MultiApp()
+        app.add_app("Foo", foo.app)
+        app.add_app("Bar", bar.app)
+        app.run()
+    c                 C   s
+   g | _ d S )N)Úapps)Úself© r   úBc:\Users\AMIGO\Desktop\web\BI_Prediccion_Bolsa_Valores\multiapp.pyÚ__init__   s    zMultiApp.__init__c                 C   s   | j  ||dœ¡ dS )zİAdds a new application.
+        Parameters
+        ----------
+        func:
+            the python function to render this app.
+        title:
+            title of the app. Appears in the dropdown in the sidebar.
+        )ÚtitleÚfunctionN)r   Úappend)r   r   Úfuncr   r   r   Úadd_app   s    	şzMultiApp.add_appc                 C   s$   t jd| jdd„ d}|d ƒ  d S )NZ
+Navigationc                 S   s   | d S )Nr   r   )Úappr   r   r   Ú<lambda>.   ó    zMultiApp.run.<locals>.<lambda>)Úformat_funcr	   )ÚstÚ	selectboxr   )r   r   r   r   r   Úrun)   s    ızMultiApp.runN)Ú__name__Ú
+__module__Ú__qualname__Ú__doc__r   r   r   r   r   r   r   r      s   r   )r   Ú	streamlitr   r   r   r   r   r   Ú<module>   s   
